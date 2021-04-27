@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Subjects;
 
 class SubjectsController extends Controller
 {
@@ -13,7 +14,7 @@ class SubjectsController extends Controller
      */
     public function index()
     {
-        //
+        return Subjects::all();
     }
 
     /**
@@ -24,7 +25,7 @@ class SubjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Subjects::create($request->all());
     }
 
     /**
@@ -35,7 +36,7 @@ class SubjectsController extends Controller
      */
     public function show($id)
     {
-        //
+        return Subjects::find($id);
     }
 
     /**
@@ -47,7 +48,9 @@ class SubjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $subject = Subjects::find($id);
+        $subject->update($request->all());
+        return $subject;
     }
 
     /**
@@ -58,6 +61,6 @@ class SubjectsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Subjects::destroy($id);
     }
 }

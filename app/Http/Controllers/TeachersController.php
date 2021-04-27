@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Teachers;
 
 class TeachersController extends Controller
 {
@@ -13,7 +14,7 @@ class TeachersController extends Controller
      */
     public function index()
     {
-        //
+        return Teachers::all();
     }
 
     /**
@@ -24,7 +25,7 @@ class TeachersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Teachers::create($request->all());
     }
 
     /**
@@ -35,7 +36,7 @@ class TeachersController extends Controller
      */
     public function show($id)
     {
-        //
+        return Teachers::find($id);
     }
 
     /**
@@ -47,7 +48,9 @@ class TeachersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $teacher = Teachers::find($id);
+        $teacher->update($request->all());
+        return $teacher;
     }
 
     /**
@@ -58,6 +61,11 @@ class TeachersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Teachers::destroy($id);
+    }
+
+    public function login(Request $request)
+    {
+        return Teachers::all();
     }
 }

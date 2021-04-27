@@ -19,6 +19,8 @@ Route::resource('students', 'App\Http\Controllers\StudentsController');
 Route::resource('subjects', 'App\Http\Controllers\SubjectsController');
 Route::resource('teachers', 'App\Http\Controllers\TeachersController');
 
+Route::post('login', 'App\Http\Controllers\TeachersController@login');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
