@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('attendance', 'App\Http\Controllers\AttendanceController');
+Route::resource('students', 'App\Http\Controllers\StudentsController');
+Route::resource('subjects', 'App\Http\Controllers\SubjectsController');
+Route::resource('teachers', 'App\Http\Controllers\TeachersController');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
